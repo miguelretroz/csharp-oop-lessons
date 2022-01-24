@@ -29,24 +29,24 @@ namespace ProductExample
             _quantity = quantity;
         }
 
-        public string GetName()
+        public string Name
         {
-            return _name;
+            get { return _name; }
+            set
+            {
+                if (value != null && value.Length > 1)
+                    _name = value;
+            }
         }
 
-        public void SetName(string name)
+        public double Price
         {
-            _name = name;
+            get { return _price; }
         }
 
-        public double GetPrice()
+        public int Quantity
         {
-            return _price;
-        }
-
-        public int GetQuantity()
-        {
-            return _quantity;
+            get { return _quantity; }
         }
 
         public double TotalValueInStock()
