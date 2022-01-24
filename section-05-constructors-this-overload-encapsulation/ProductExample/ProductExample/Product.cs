@@ -13,17 +13,22 @@ namespace ProductExample
         public double Price;
         public int Quantity;
 
-        public Product(string name, double price, int quantity)
+        public Product()
+        {
+            Quantity = 10;
+        }
+
+        public Product(string name, double price) : this()
+        {
+            Name = name;
+            Price = price;
+        }
+
+        public Product(string name, double price, int quantity) : this(name, price)
         {
             Name = name;
             Price = price;
             Quantity = quantity;
-        }
-
-        public Product(string name, double price)
-        {
-            Name = name;
-            Price = price;
         }
         public double TotalValueInStock()
         {
