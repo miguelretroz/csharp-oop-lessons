@@ -9,46 +9,65 @@ namespace ProductExample
 {
     internal class Product
     {
-        public string Name;
-        public double Price;
-        public int Quantity;
+        private string _name;
+        private double _price;
+        private int _quantity;
 
         public Product()
         {
-            Quantity = 10;
+            _quantity = 10;
         }
 
         public Product(string name, double price) : this()
         {
-            Name = name;
-            Price = price;
+            _name = name;
+            _price = price;
         }
 
         public Product(string name, double price, int quantity) : this(name, price)
         {
-            Name = name;
-            Price = price;
-            Quantity = quantity;
+            _quantity = quantity;
         }
+
+        public string GetName()
+        {
+            return _name;
+        }
+
+        public void SetName(string name)
+        {
+            _name = name;
+        }
+
+        public double GetPrice()
+        {
+            return _price;
+        }
+
+        public int GetQuantity()
+        {
+            return _quantity;
+        }
+
         public double TotalValueInStock()
         {
-            return Price * Quantity;
+            return _price * _quantity;
         }
         public void AddProducts(int quantidade)
         {
-            Quantity += quantidade;
+            _quantity += quantidade;
         }
         public void RemoveProducts(int quantidade)
         {
-            Quantity -= quantidade;
+            _quantity -= quantidade;
         }
         public override string ToString()
         {
-            return Name
+            return _name
             + ", $ "
-            + Price.ToString("F2", CultureInfo.InvariantCulture)
+            + _price.ToString("F2", CultureInfo.InvariantCulture)
             + ", "
-            + Quantity
+            + _quantity
             + " unidades, Total: $ "
             + TotalValueInStock().ToString("F2", CultureInfo.InvariantCulture);
         }
